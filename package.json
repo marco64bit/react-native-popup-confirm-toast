@@ -1,13 +1,13 @@
 {
-  "name": "@sekizlipenguen/react-native-popup-confirm-toast",
-  "version": "1.0.7",
+  "name": "@marco64bit/react-native-popup-confirm-toast",
+  "version": "3.0.0",
   "description": "A flexible and customizable popup, toast, and bottom sheet library for React Native. Supports Android, iOS, and Web with React Native 0.60+.",
   "main": "index.js",
   "types": "index.d.ts",
   "typings": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sekizlipenguen/react-native-popup-confirm-toast.git"
+    "url": "https://github.com/marco64bit/react-native-popup-confirm-toast"
   },
   "keywords": [
     "react-native",
@@ -43,7 +43,7 @@
     "react-native": ">=0.60"
   },
   "bugs": {
-    "url": "https://github.com/sekizlipenguen/react-native-popup-confirm-toast/issues"
+    "url": "https://github.com/marco64bit/react-native-popup-confirm-toast/issues"
   },
-  "homepage": "https://github.com/sekizlipenguen/react-native-popup-confirm-toast#readme"
+  "homepage": "https://github.com/marco64bit/react-native-popup-confirm-toast#readme"
 }
