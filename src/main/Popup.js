@@ -55,6 +55,7 @@ class Popup extends Component {
       titleTextStyle: false,
       descTextStyle: false,
       start: false,
+      disabled: false,
       useNativeDriver: true,
       bounciness: 15,
       onClose: false,
@@ -77,6 +78,10 @@ class Popup extends Component {
 
   static hide() {
     this.popupInstance.hidePopup();
+  }
+
+  static setDisabled(disabled) {
+    this.popupInstance.disabled = disabled;
   }
 
   componentDidMount() {
@@ -225,6 +230,9 @@ class Popup extends Component {
 
     const typeName = type + "ButtonStyle";
     const BodyComponentElement = bodyComponent ? bodyComponent : false;
+    if (this.popupInstance.disabled) {
+      return <></>;
+    }
     return (
       <Animated.View
         ref={(c) => (this._root = c)}
