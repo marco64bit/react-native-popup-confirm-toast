@@ -4,6 +4,11 @@
 [![github issues](https://img.shields.io/github/issues/sekizlipenguen/react-native-popup-confirm-toast.svg?style=flat-square)](https://github.com/sekizlipenguen/react-native-popup-confirm-toast/issues)
 [![github closed issues](https://img.shields.io/github/issues-closed/sekizlipenguen/react-native-popup-confirm-toast.svg?style=flat-square&colorB=44cc11)](https://github.com/sekizlipenguen/react-native-popup-confirm-toast/issues?q=is%3Aissue+is%3Aclosed)
 
+# MARCO FIX
+
+can disable popup calling Popup.setDisalbed(true) and re-enable calling Popup.setDisabled(false)<br>
+this is usefull for Android PIP mode
+
 # @sekizlipenguen/react-native-popup-confirm-toast
 
 A flexible and user-friendly popup, toast, and bottom sheet solution for React Native. This package provides customizable components for displaying interactive messages, confirmation dialogs, and toast notifications in your mobile applications.
@@ -13,19 +18,19 @@ A flexible and user-friendly popup, toast, and bottom sheet solution for React N
 ## Example Bottom Sheet
 
 |    Custom Example 1    |    Custom Example 2    |    Custom Example 3    |    Custom Example 4    |
-|:----------------------:|:----------------------:|:----------------------:|:----------------------:|
+| :--------------------: | :--------------------: | :--------------------: | :--------------------: |
 | ![](assets/popup6.gif) | ![](assets/popup5.gif) | ![](assets/popup7.gif) | ![](assets/popup8.gif) |
 
 ## Example Popup Message
 
 |    Example Message     | Example Confirm Message | Example Message AutoClose | Example Custom Body Component |
-|:----------------------:|:-----------------------:|:-------------------------:|:-----------------------------:|
+| :--------------------: | :---------------------: | :-----------------------: | :---------------------------: |
 | ![](assets/popup1.gif) | ![](assets/popup2.gif)  |  ![](assets/popup3.gif)   |    ![](assets/popup4.gif)     |
 
 ## Example Toast Message
 
 | Example Toast Top | Example Toast Bottom |
-|:-----------------:|:--------------------:|
+| :---------------: | :------------------: |
 | ![](assets/3.gif) |  ![](assets/4.gif)   |
 
 ## Usage
@@ -53,11 +58,11 @@ the index.js file. If you have an Expo project, you can do this inside the expor
 ### Example Provider
 
 ```javascript
-import * as React from 'react';
-import { AppRegistry } from 'react-native';
-import {Root as PopupRootProvider} from '@sekizlipenguen/react-native-popup-confirm-toast';
-import { name as appName } from './app.json';
-import App from './src/App';
+import * as React from "react";
+import { AppRegistry } from "react-native";
+import { Root as PopupRootProvider } from "@sekizlipenguen/react-native-popup-confirm-toast";
+import { name as appName } from "./app.json";
+import App from "./src/App";
 
 export default function Main() {
   return (
@@ -76,9 +81,9 @@ AppRegistry.registerComponent(appName, () => Main);
 import { Root, SPSheet } from '@sekizlipenguen/react-native-popup-confirm-toast'
 
 const component = (props) => {
-    //hook or class 
+    //hook or class
     return (<Text>Hi, SekizliPenguen</Text>);
-    
+
     //props.spSheet.hide();
     //props.spSheet.setHeight(150,()=>alert('nice'));
 };
@@ -108,51 +113,51 @@ const component = (props) => {
 ### Example Message
 
 ```javascript
-import {Popup} from '@sekizlipenguen/react-native-popup-confirm-toast'
+import { Popup } from "@sekizlipenguen/react-native-popup-confirm-toast";
 <View>
-    <TouchableOpacity
-        onPress={() =>
-          Popup.show({
-            type: 'success',
-            title: 'Success!',
-            textBody: 'Mutlak özgürlük, kendi başına hiçbir anlam ifade etmez. ',
-            buttonText: 'OK',
-            callback: () => Popup.hide()
-          })
-        }
-    >
-        <Text>Open Popup Message</Text>
-    </TouchableOpacity>
-</View>
+  <TouchableOpacity
+    onPress={() =>
+      Popup.show({
+        type: "success",
+        title: "Success!",
+        textBody: "Mutlak özgürlük, kendi başına hiçbir anlam ifade etmez. ",
+        buttonText: "OK",
+        callback: () => Popup.hide(),
+      })
+    }
+  >
+    <Text>Open Popup Message</Text>
+  </TouchableOpacity>
+</View>;
 ```
 
 ### Example Confirm Message
 
 ```javascript
-import {Popup} from '@sekizlipenguen/react-native-popup-confirm-toast'
+import { Popup } from "@sekizlipenguen/react-native-popup-confirm-toast";
 <View>
-    <TouchableOpacity
-        onPress={() =>
-            Popup.show({
-                type: 'confirm',
-                title: 'Dikkat!',
-                textBody: 'Mutlak özgürlük, kendi başına hiçbir anlam ifade etmez. ',
-                buttonText: 'Tamam',
-                confirmText: 'Vazgeç',
-                callback: () => {
-                    alert('Okey Callback && hidden');
-                    Popup.hide();
-                },
-                cancelCallback: () => {
-                    alert('Cancel Callback && hidden');
-                    Popup.hide();
-                },
-            })
-        }
-    >
-        <Text>Open Popup Confirm Message</Text>
-    </TouchableOpacity>
-</View>
+  <TouchableOpacity
+    onPress={() =>
+      Popup.show({
+        type: "confirm",
+        title: "Dikkat!",
+        textBody: "Mutlak özgürlük, kendi başına hiçbir anlam ifade etmez. ",
+        buttonText: "Tamam",
+        confirmText: "Vazgeç",
+        callback: () => {
+          alert("Okey Callback && hidden");
+          Popup.hide();
+        },
+        cancelCallback: () => {
+          alert("Cancel Callback && hidden");
+          Popup.hide();
+        },
+      })
+    }
+  >
+    <Text>Open Popup Confirm Message</Text>
+  </TouchableOpacity>
+</View>;
 ```
 
 ### Example Custom Body Component
@@ -192,58 +197,57 @@ const bodyComponent = ({props,bodyProps}) => {
 ### Toast
 
 ```javascript
-import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
-    <Root>
-        <View>
-            <TouchableOpacity
-                onPress={() => 
-                      Toast.show({
-                          title: 'I\'m Eight!',
-                          text: 'The best gift I received in this life are the codes. They are worlds inside the worlds.',
-                          backgroundColor: '#702c91',
-                          timeColor: '#440f5f',
-                          timing: 3000,
-                          icon: <Icon name={'check'} color={'#fff'} size={31}/>,
-                          position: 'bottom',
-                          statusBarType:'dark-content',
-                          onCloseComplete: () => {
-                            alert('onCloseComplete');
-                          },
-                          onOpenComplete: () => {
-                            alert('onOpenComplete');
-                          },
-                        })
-                }
-            >
-                <Text>Open Bottom Toast</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity
-                onPress={() => 
-                    Toast.show({
-                      title: 'I\'m Eight!',
-                      text: 'The best gift I received in this life are the codes. They are worlds inside the worlds.',
-                      backgroundColor: '#702c91',
-                      timeColor: '#440f5f',
-                      timing: 3000,
-                      icon: <Icon name={'check'} color={'#fff'} size={31}/>,
-                      position: 'top',
-                      statusBarTranslucent: false,
-                      statusBarType:'light-content',
-                      onCloseComplete: () => {
-                        alert('onCloseComplete');
-                      },
-                      onOpenComplete: () => {
-                        alert('onOpenComplete');
-                      },
-                    })
-                }
-            >
-                <Text>Open Top Toast</Text>
-            </TouchableOpacity>
+import { Root, Toast } from "@sekizlipenguen/react-native-popup-confirm-toast";
+<Root>
+  <View>
+    <TouchableOpacity
+      onPress={() =>
+        Toast.show({
+          title: "I'm Eight!",
+          text: "The best gift I received in this life are the codes. They are worlds inside the worlds.",
+          backgroundColor: "#702c91",
+          timeColor: "#440f5f",
+          timing: 3000,
+          icon: <Icon name={"check"} color={"#fff"} size={31} />,
+          position: "bottom",
+          statusBarType: "dark-content",
+          onCloseComplete: () => {
+            alert("onCloseComplete");
+          },
+          onOpenComplete: () => {
+            alert("onOpenComplete");
+          },
+        })
+      }
+    >
+      <Text>Open Bottom Toast</Text>
+    </TouchableOpacity>
 
-        </View>
-    </Root>
+    <TouchableOpacity
+      onPress={() =>
+        Toast.show({
+          title: "I'm Eight!",
+          text: "The best gift I received in this life are the codes. They are worlds inside the worlds.",
+          backgroundColor: "#702c91",
+          timeColor: "#440f5f",
+          timing: 3000,
+          icon: <Icon name={"check"} color={"#fff"} size={31} />,
+          position: "top",
+          statusBarTranslucent: false,
+          statusBarType: "light-content",
+          onCloseComplete: () => {
+            alert("onCloseComplete");
+          },
+          onOpenComplete: () => {
+            alert("onOpenComplete");
+          },
+        })
+      }
+    >
+      <Text>Open Top Toast</Text>
+    </TouchableOpacity>
+  </View>
+</Root>;
 ```
 
 ## Features & Documentation
@@ -251,7 +255,7 @@ import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
 ### SPSheet
 
 | Key                        | Type                     | Description                                                               | Default            |
-|----------------------------|--------------------------|---------------------------------------------------------------------------|--------------------|
+| -------------------------- | ------------------------ | ------------------------------------------------------------------------- | ------------------ |
 | `background`               | string                   |                                                                           | rgba(0, 0, 0, 0.5) |
 | `height`                   | number                   | auto height (min: 250)                                                    | 250                |
 | `duration`                 | number                   | animation time used when opening                                          | 250(ms)            |
@@ -260,7 +264,7 @@ import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
 | `closeOnPressMask`         | boolean                  | press the outside space to close the window                               | true               |
 | `closeOnPressBack`         | boolean                  | Press the back key to close the window (Android only)                     | true               |
 | `dragTopOnly`              | boolean                  | use only the top area of the draggable icon to close the window           | false              |
-| `component`                | component(hook or class) | custom modal component container                                          | null               | 
+| `component`                | component(hook or class) | custom modal component container                                          | null               |
 | `onOpen`                   | function                 | works after the window is opened                                          | null               |
 | `onOpenComplete`           | function                 | works after the window is opened                                          | null               |
 | `onClose`                  | function                 | works after window is closed                                              | null               |
@@ -272,11 +276,11 @@ import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
 ### Popup
 
 | Key                      | Type                               | Description                                                                                        | Default                                                                                                                   |
-|--------------------------|------------------------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| ------------------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `title`                  | string                             |                                                                                                    | false                                                                                                                     |
-| `textBody`               | string                             |                                                                                                    | false                                                                                                                     | 
-| `bodyComponent`          | component(hook or class)           | custom modal component container                                                                   | null                                                                                                                      | 
-| `bodyComponentForce`     | boolean                            | The component you specify covers the entire space                                                  | false                                                                                                                     | 
+| `textBody`               | string                             |                                                                                                    | false                                                                                                                     |
+| `bodyComponent`          | component(hook or class)           | custom modal component container                                                                   | null                                                                                                                      |
+| `bodyComponentForce`     | boolean                            | The component you specify covers the entire space                                                  | false                                                                                                                     |
 | `onLayout`               | (event: LayoutChangeEvent) => void | Triggers automatically to calculate and adjust the height of the popup component during rendering. | -                                                                                                                         |
 | `type`                   | enum                               | enum(success, info, danger, warning, confirm)                                                      | warning                                                                                                                   |
 | `buttonText`             | string                             |                                                                                                    | Ok                                                                                                                        |
@@ -308,7 +312,7 @@ import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
 ### Toast
 
 | Key                      | Type      | Description                                       | Default                                                       |
-|--------------------------|-----------|---------------------------------------------------|---------------------------------------------------------------|
+| ------------------------ | --------- | ------------------------------------------------- | ------------------------------------------------------------- |
 | `title`                  | string    |                                                   | false                                                         |
 | `text`                   | string    | Description                                       | false                                                         |
 | `titleTextStyle`         | object    |                                                   | {color: '#fff',fontWeight: 'bold',fontSize: 16}               |
@@ -333,7 +337,7 @@ import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
 ### Methods
 
 | Component Name | Method Name | Example                                                                | Description                         |
-|----------------|-------------|------------------------------------------------------------------------|-------------------------------------|
+| -------------- | ----------- | ---------------------------------------------------------------------- | ----------------------------------- |
 | SPSheet        | show        | const spSheet = SPSheet; spSheet.show(config);                         |                                     |
 | SPSheet        | hide        | const spSheet = SPSheet; spSheet.hide();                               |                                     |
 | SPSheet        | setHeight   | const spSheet = SPSheet; spSheet.setHeight(500,completeEventFunction); | allows you to change the box height |
@@ -345,7 +349,7 @@ import { Root, Toast } from '@sekizlipenguen/react-native-popup-confirm-toast'
 ### Helper Function
 
 ```javascript
-import {getStatusBarHeight} from '@sekizlipenguen/react-native-popup-confirm-toast';
+import { getStatusBarHeight } from "@sekizlipenguen/react-native-popup-confirm-toast";
 ```
 
 ## Author
