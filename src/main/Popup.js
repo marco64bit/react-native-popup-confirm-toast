@@ -231,7 +231,7 @@ class Popup extends Component {
 
     const typeName = type + "ButtonStyle";
     const BodyComponentElement = bodyComponent ? bodyComponent : false;
-    if (this.popupInstance.disabled) {
+    if (this.popupInstance && this.popupInstance.disabled) {
       return <></>;
     }
     return (
