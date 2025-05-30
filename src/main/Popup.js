@@ -12,6 +12,7 @@ import {
 
 class Popup extends Component {
   static popupInstance;
+  static disabled = false;
 
   constructor(props) {
     super(props);
@@ -55,7 +56,6 @@ class Popup extends Component {
       titleTextStyle: false,
       descTextStyle: false,
       start: false,
-      disabled: false,
       useNativeDriver: true,
       bounciness: 15,
       onClose: false,
