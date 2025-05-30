@@ -12,7 +12,6 @@ import {
 
 class Popup extends Component {
   static popupInstance;
-  static disabled = false;
 
   constructor(props) {
     super(props);
@@ -145,6 +144,8 @@ class Popup extends Component {
       }
     );
   }
+
+  disabled = false;
 
   hidePopup() {
     const { positionPopup, opacity, positionView, onCloseComplete, onClose } =
